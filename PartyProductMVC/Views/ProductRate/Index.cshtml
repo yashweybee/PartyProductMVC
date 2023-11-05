@@ -1,28 +1,30 @@
-﻿@model IEnumerable<PartyProductMVC.Models.Party>
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<button class=" btn btn-info">Add Party</button>
-<table class="table">
+<h2>Product Rate</h2>
+<button class=" btn btn-info">Add Product Rate</button>
+@*<table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Party Name</th>
+            <th scope="col">Product Name</th>
             <th scope="col">E</th>
             <th scope="col">D</th>
 
         </tr>
     </thead>
     <tbody>
-        @foreach (var party in Model)
+        @foreach (var product in Model)
         {
             <tr>
-                <td>@party.PartyName</td>
+                <td>@product.ProductName</td>
                 <td>Edit</td>
                 <td>Delete</td>
             </tr>
         }
     </tbody>
-</table>
+</table>*@
+
 

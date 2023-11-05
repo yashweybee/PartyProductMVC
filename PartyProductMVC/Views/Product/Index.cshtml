@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PartyProductMVC.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<button class=" btn btn-info">Add Product</button>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">E</th>
+            <th scope="col">D</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+        <tr>
+            <td>@product.ProductName</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        }
+    </tbody>
+</table>

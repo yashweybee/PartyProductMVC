@@ -169,9 +169,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssignPartyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PartyController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductRateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +183,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Party.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -191,6 +196,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap-reboot.rtl.css" />
     <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-slate.css" />
     <Content Include="Content\bootstrap-utilities.css" />
     <Content Include="Content\bootstrap-utilities.min.css" />
     <Content Include="Content\bootstrap-utilities.rtl.css" />
@@ -254,6 +260,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Party\Index.cshtml" />
+    <Content Include="Views\Shared\_Navbar.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\AssignParty\Index.cshtml" />
+    <Content Include="Views\ProductRate\Index.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

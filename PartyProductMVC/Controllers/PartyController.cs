@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PartyProductMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,14 @@ namespace PartyProductMVC.Controllers
         // GET: Party
         public ActionResult Index()
         {
-            return View();
+            var party = new List<Party>()
+            {
+                new Party(){Id=1, PartyName = "Party1"},
+                new Party(){Id=2, PartyName = "Party2"},
+                new Party(){Id=3, PartyName = "Part31"}
+
+            };
+            return View(party);
         }
     }
 }
