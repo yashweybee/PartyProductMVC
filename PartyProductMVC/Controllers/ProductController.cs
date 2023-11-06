@@ -57,7 +57,7 @@ namespace PartyProductMVC.Controllers
                 ProductName = product.ProductName
             };
 
-            var productContextDb = _context.Product.SingleOrDefault(pr => pr.Id == product.Id);
+            var productContextDb = _context.Product.SingleOrDefault(pr => pr.ProductId == product.ProductId);
             productContextDb.ProductName = product.ProductName;
 
             _context.SaveChanges();
@@ -66,13 +66,13 @@ namespace PartyProductMVC.Controllers
 
         public ActionResult Edit(int id)
         {
-            var product = _context.Product.SingleOrDefault(p => p.Id == id);
+            var product = _context.Product.SingleOrDefault(p => p.ProductId == id);
             return View("Edit", product);
         }
 
         public ActionResult Delete(int id)
         {
-            var product = _context.Product.SingleOrDefault(p => p.Id == id);
+            var product = _context.Product.SingleOrDefault(p => p.ProductId == id);
             _context.Product.Remove(product);
             _context.SaveChanges();
             return RedirectToAction("Index");

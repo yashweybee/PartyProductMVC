@@ -18,8 +18,8 @@
         {
         <tr>
             <td>@product.ProductName</td>
-            <td>@Html.ActionLink("Edit", "Edit", "Product", new { id = product.Id }, null)</td>
-            <td>@Html.ActionLink("Delete", "Delete", "Product", new { id = product.Id }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Product", new { id = product.ProductId }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Product", new { id = product.ProductId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
         </tr>
         }
     </tbody>

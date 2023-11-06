@@ -11,7 +11,7 @@ namespace PartyProductMVC.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int PartyId { get; set; }
 
         [Required]
         [StringLength(255)]

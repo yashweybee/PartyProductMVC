@@ -56,7 +56,7 @@ namespace PartyProductMVC.Controllers
                 PartyName = party.PartyName
             };
 
-            var partyContextDb = _context.Party.SingleOrDefault(pr => pr.Id == party.Id);
+            var partyContextDb = _context.Party.SingleOrDefault(pr => pr.PartyId == party.PartyId);
             partyContextDb.PartyName = party.PartyName;
 
             _context.SaveChanges();
@@ -65,13 +65,13 @@ namespace PartyProductMVC.Controllers
 
         public ActionResult Edit(int id)
         {
-            var party = _context.Party.SingleOrDefault(p => p.Id == id);
+            var party = _context.Party.SingleOrDefault(p => p.PartyId == id);
             return View("Edit", party);
         }
 
         public ActionResult Delete(int id)
         {
-            var party = _context.Party.SingleOrDefault(p => p.Id == id);
+            var party = _context.Party.SingleOrDefault(p => p.PartyId == id);
             _context.Party.Remove(party);
             _context.SaveChanges();
             return RedirectToAction("Index");

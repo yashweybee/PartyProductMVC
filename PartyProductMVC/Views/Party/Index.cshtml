@@ -19,8 +19,8 @@
         {
             <tr>
                 <td>@party.PartyName</td>
-                <td>@Html.ActionLink("Edit", "Edit", "Party", new { id = party.Id }, null)</td>
-                <td>@Html.ActionLink("Delete", "Delete", "Party", new { id = party.Id }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Party", new { id = party.PartyId }, null)</td>
+                <td>@Html.ActionLink("Delete", "Delete", "Party", new { id = party.PartyId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
             </tr>
         }
     </tbody>

@@ -12,8 +12,8 @@
         @Html.TextBoxFor(p => p.ProductName, "", new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.ProductName)
     </div>
-
-    @Html.HiddenFor(p => p.Id)
+    <br />
+    @Html.HiddenFor(p => p.ProductId)
 
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="/product" class="btn btn-danger">Cancle</a>
