@@ -9,17 +9,41 @@ namespace PartyProductMVC.Controllers
 {
     public class ProductController : Controller
     {
+        private ApplicationDbContext _context;
+        public ProductController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Product
         public ActionResult Index()
         {
-            List<Product> products = new List<Product>()
-        {
-            new Product { Id = 1, ProductName = "Pen"},
-            new Product { Id = 2,ProductName = "Pencil"},
-            new Product { Id = 3,ProductName = "Paper"}
-        };
+            var products = _context.Product;
 
             return View(products);
+        }
+        public ActionResult Add()
+        {
+            var products = new Product();
+            return View(products);
+        }
+
+
+        [HttpPost]
+        public ActionResult Save(Product product)
+        {
+            Product p = new Product()
+            {
+                ProductName = product.ProductName
+            };
+            _context.Product.Add(p);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Product");
         }
     }
 }

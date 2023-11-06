@@ -22,6 +22,7 @@ namespace PartyProductMVC.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Party> Party { get; set; }
+        public DbSet<Product> Product { get; set; }
 
 
 
