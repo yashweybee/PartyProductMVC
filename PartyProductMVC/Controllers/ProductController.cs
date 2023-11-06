@@ -69,5 +69,13 @@ namespace PartyProductMVC.Controllers
             var product = _context.Product.SingleOrDefault(p => p.Id == id);
             return View("Edit", product);
         }
+
+        public ActionResult Delete(int id)
+        {
+            var product = _context.Product.SingleOrDefault(p => p.Id == id);
+            _context.Product.Remove(product);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
