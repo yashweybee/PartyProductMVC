@@ -25,13 +25,7 @@ namespace PartyProductMVC.Controllers
         // GET: Party
         public ActionResult Index()
         {
-            var party = new List<Party>()
-            {
-                new Party(){Id=1, PartyName = "Party1"},
-                new Party(){Id=2, PartyName = "Party2"},
-                new Party(){Id=3, PartyName = "Part31"}
-
-            };
+            var party = _context.Party;
             return View(party);
         }
 
