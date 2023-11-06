@@ -1,11 +1,11 @@
 ﻿@model PartyProductMVC.Models.Product
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Product</h2>
-@using (Html.BeginForm("Save", "Product"))
+<h2>Edit Product</h2>
+@using (Html.BeginForm("SaveEdit", "Product"))
 {
     <div class="form-group">
         @Html.LabelFor(p => p.ProductName)
@@ -16,6 +16,6 @@
     @Html.HiddenFor(p => p.Id)
 
     <button type="submit" class="btn btn-primary">Save</button>
-    <a href="/" class="btn btn-danger">Cancle</a>
+    <a href="/product" class="btn btn-danger">Cancle</a>
 }
 

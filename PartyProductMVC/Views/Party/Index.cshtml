@@ -19,7 +19,7 @@
         {
             <tr>
                 <td>@party.PartyName</td>
-                <td>Edit</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Party", new { id = party.Id }, null)</td>
                 <td>Delete</td>
             </tr>
         }

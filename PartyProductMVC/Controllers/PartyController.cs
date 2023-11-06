@@ -48,5 +48,26 @@ namespace PartyProductMVC.Controllers
 
             return RedirectToAction("Index", "Party");
         }
+
+        public ActionResult SaveEdit(Party party)
+        {
+            Party p = new Party()
+            {
+                PartyName = party.PartyName
+            };
+
+            var partyContextDb = _context.Party.SingleOrDefault(pr => pr.Id == pr.Id);
+            partyContextDb.PartyName = party.PartyName;
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Party");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var party = _context.Party.SingleOrDefault(p => p.Id == id);
+            return View("Edit", party);
+
+        }
     }
 }

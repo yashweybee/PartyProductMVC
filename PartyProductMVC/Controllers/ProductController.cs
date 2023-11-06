@@ -41,9 +41,33 @@ namespace PartyProductMVC.Controllers
                 ProductName = product.ProductName
             };
             _context.Product.Add(p);
+
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Product");
+        }
+
+
+
+        [HttpPost]
+        public ActionResult SaveEdit(Product product)
+        {
+            Product p = new Product()
+            {
+                ProductName = product.ProductName
+            };
+
+            var productContextDb = _context.Product.SingleOrDefault(pr => pr.Id == product.Id);
+            productContextDb.ProductName = product.ProductName;
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Product");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var product = _context.Product.SingleOrDefault(p => p.Id == id);
+            return View("Edit", product);
         }
     }
 }
