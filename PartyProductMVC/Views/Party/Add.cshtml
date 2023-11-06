@@ -1,0 +1,20 @@
+﻿@model PartyProductMVC.Models.Party
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+@using (Html.BeginForm("Save", "Party"))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.PartyName)
+        @Html.TextBoxFor(p => p.PartyName, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.PartyName)
+    </div>
+
+    @Html.HiddenFor(p=> p.Id)
+
+    <button type="submit" class="btn btn-primary">Save</button>
+   <a href="/" class="btn btn-danger">Cancle</a>
+}
