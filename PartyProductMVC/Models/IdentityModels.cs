@@ -24,6 +24,9 @@ namespace PartyProductMVC.Models
         public DbSet<Party> Party { get; set; }
         public DbSet<Product> Product { get; set; }
 
+        public DbSet<AssignParty> AssignParty { get; set; }
+
+
 
 
         public ApplicationDbContext()

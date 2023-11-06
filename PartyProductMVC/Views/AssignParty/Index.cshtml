@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<PartyProductMVC.Models.AssignParty>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,27 +6,29 @@
 
 <h2>Assign Party</h2>
 
-<button class=" btn btn-info">Assign Party</button>
+<a href="AssignParty/add" class=" btn btn-info">Assign Party</a>
 
-@*<table class="table">
+<table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Product Name</th>
+            <th scope="col">Party </th>
+            <th scope="col">Product </th>
             <th scope="col">E</th>
             <th scope="col">D</th>
-
         </tr>
     </thead>
     <tbody>
-        @foreach (var product in Model)
+        @foreach (var ap in Model)
         {
             <tr>
-                <td>@product.ProductName</td>
+                <td>@ap.Party.PartyName</td>
+                <td>@ap.Product.ProductName</td>
                 <td>Edit</td>
-                <td>Delete</td>
+                <td>@Html.ActionLink("Delete", "Delete", "AssignParty", new { id = ap.AsId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+                
             </tr>
         }
     </tbody>
-</table>*@
+</table>
 
 

@@ -195,6 +195,10 @@
     <Compile Include="Migrations\202311061039554_updatedIdColumnNames.designer.cs">
       <DependentUpon>202311061039554_updatedIdColumnNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311061139394_AddedAssignPartyTable.cs" />
+    <Compile Include="Migrations\202311061139394_AddedAssignPartyTable.designer.cs">
+      <DependentUpon>202311061139394_AddedAssignPartyTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssignParty.cs" />
@@ -287,6 +291,7 @@
     <Content Include="Views\Product\Add.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Party\Edit.cshtml" />
+    <Content Include="Views\AssignParty\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311061039554_updatedIdColumnNames.resx">
       <DependentUpon>202311061039554_updatedIdColumnNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311061139394_AddedAssignPartyTable.resx">
+      <DependentUpon>202311061139394_AddedAssignPartyTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
