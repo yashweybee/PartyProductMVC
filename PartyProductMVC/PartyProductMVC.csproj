@@ -292,6 +292,7 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Party\Edit.cshtml" />
     <Content Include="Views\AssignParty\Add.cshtml" />
+    <Content Include="Views\AssignParty\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

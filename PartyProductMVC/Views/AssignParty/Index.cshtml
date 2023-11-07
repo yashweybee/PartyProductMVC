@@ -23,7 +23,7 @@
             <tr>
                 <td>@ap.Party.PartyName</td>
                 <td>@ap.Product.ProductName</td>
-                <td>Edit</td>
+                <td>@Html.ActionLink("Edit", "Edit", "AssignParty", new { id = ap.AsId }, null)</td>
                 <td>@Html.ActionLink("Delete", "Delete", "AssignParty", new { id = ap.AsId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
                 
             </tr>

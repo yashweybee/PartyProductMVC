@@ -62,7 +62,29 @@ namespace PartyProductMVC.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
 
+        public ActionResult Edit(int id)
+        {
+            var assignParty = _context.AssignParty.SingleOrDefault(ap => ap.AsId == id);
+            ViewBag.listParty = _context.Party;
+            ViewBag.listProduct = _context.Product;
+            return View("Edit", assignParty);
+        }
+
+        public ActionResult SaveEdit(AssignParty assignParty)
+        {
+            AssignParty ap = new AssignParty()
+            {
+                PartyId = assignParty.Party.PartyId,
+                ProductId = assignParty.Product.ProductId
+            };
+            var AssignPartyDbContext = _context.AssignParty.SingleOrDefault(apr => apr.AsId == assignParty.AsId);
+            AssignPartyDbContext.PartyId = ap.PartyId;
+            AssignPartyDbContext.ProductId = ap.ProductId;
+
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
