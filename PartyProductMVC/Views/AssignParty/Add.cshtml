@@ -17,6 +17,7 @@
         @Html.DropDownListFor(m => m.Product.ProductId, new SelectList(ViewBag.list2, "ProductId", "ProductName"), "select Product", new { @class = "form-control" })
     </div>
 
+    @Html.HiddenFor(ap => ap.AsId)
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="/" class="btn btn-danger">Cancle</a>
 

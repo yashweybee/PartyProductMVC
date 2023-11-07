@@ -49,9 +49,20 @@ namespace PartyProductMVC.Controllers
             return View("Add");
         }
 
+        [HttpPost]
         public ActionResult Save(AssignParty assignParty)
         {
-            return View();
+            AssignParty ap = new AssignParty()
+            {
+                PartyId = assignParty.Party.PartyId,
+                ProductId = assignParty.Product.ProductId
+
+            };
+            _context.AssignParty.Add(ap);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+
         }
     }
 }
