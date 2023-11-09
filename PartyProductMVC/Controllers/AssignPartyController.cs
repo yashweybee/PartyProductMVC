@@ -37,7 +37,6 @@ namespace PartyProductMVC.Controllers
             _context.AssignParty.Remove(AssignPartyDb);
             _context.SaveChanges();
             return RedirectToAction("Index");
-
         }
         public ActionResult Add()
         {
@@ -46,6 +45,7 @@ namespace PartyProductMVC.Controllers
 
             ViewBag.list1 = party;
             ViewBag.list2 = product;
+
             return View("Add");
         }
 

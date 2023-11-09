@@ -1,0 +1,34 @@
+﻿@model PartyProductMVC.Models.ProductRate
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Product Rate</h2>
+@using (Html.BeginForm("Save", "ProductRate"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductId)
+        @Html.DropDownListFor(m => m.Product.ProductId, new SelectList(ViewBag.products, "ProductId", "ProductName"), "select Product", new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(pr => pr.Rate)
+        @Html.TextBoxFor(p => p.Rate, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Rate)
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(pr => pr.DateOfRate)
+        @Html.TextBoxFor(p => p.DateOfRate, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.DateOfRate)
+    </div>
+
+    @Html.HiddenFor(ap => ap.ProductRateId)
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/ProductRate" class="btn btn-danger">Cancle</a>
+}
+

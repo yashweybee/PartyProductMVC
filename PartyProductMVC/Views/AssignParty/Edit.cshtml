@@ -9,8 +9,7 @@
 {
     <div class="form-group">
         @Html.LabelFor(m => m.PartyId)
-        @Html.DropDownListFor(m => m.Party.PartyId, new SelectList(ViewBag.listParty, "PartyId", "PartyName"), "select Party", new { @class = "form-control" })
-        
+        @Html.DropDownListFor(m => m.Party.PartyId, new SelectList(ViewBag.listParty, "PartyId", "PartyName"), "Select Party", new { @class = "form-control" })
     </div>
 
     <div class="form-group">
@@ -21,5 +20,4 @@
     @Html.HiddenFor(ap => ap.AsId)
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="/AssignParty" class="btn btn-danger">Cancle</a>
-
 }

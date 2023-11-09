@@ -1,0 +1,32 @@
+﻿@model PartyProductMVC.Models.ProductRate
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Product Rate</h2>
+@using (Html.BeginForm("SaveEdit", "ProductRate"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(pr => pr.Product.ProductName)
+        @Html.TextBoxFor(p => p.Product.ProductName,new { @class = "form-control", @disabled = "disabled", @Value = Model.Product.ProductName })
+        @Html.ValidationMessageFor(p => p.Product.ProductName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(pr => pr.Rate)
+        @Html.TextBoxFor(p => p.Rate, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Rate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(pr => pr.DateOfRate)
+        @Html.TextBoxFor(p => p.DateOfRate, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.DateOfRate)
+    </div>
+
+    @Html.HiddenFor(ap => ap.ProductRateId)
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/ProductRate" class="btn btn-danger">Cancle</a>
+}

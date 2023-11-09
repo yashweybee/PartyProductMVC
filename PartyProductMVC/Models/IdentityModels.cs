@@ -26,7 +26,7 @@ namespace PartyProductMVC.Models
 
         public DbSet<AssignParty> AssignParty { get; set; }
 
-
+        public DbSet<ProductRate> ProductRate { get; set; }
 
 
         public ApplicationDbContext()
