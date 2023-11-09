@@ -11,6 +11,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.ProductId)
         @Html.DropDownListFor(m => m.Product.ProductId, new SelectList(ViewBag.products, "ProductId", "ProductName"), "select Product", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductId)
     </div>
 
 
