@@ -28,6 +28,7 @@ namespace PartyProductMVC.Models
 
         public DbSet<ProductRate> ProductRate { get; set; }
 
+        public DbSet<Invoice> Invoice { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

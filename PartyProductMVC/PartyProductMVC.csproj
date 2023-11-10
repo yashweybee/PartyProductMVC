@@ -203,10 +203,15 @@
     <Compile Include="Migrations\202311070918496_addProductRateTable.designer.cs">
       <DependentUpon>202311070918496_addProductRateTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311100406528_AddInvoiceTable.cs" />
+    <Compile Include="Migrations\202311100406528_AddInvoiceTable.designer.cs">
+      <DependentUpon>202311100406528_AddInvoiceTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssignParty.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Party.cs" />
     <Compile Include="Models\Product.cs" />
@@ -349,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311070918496_addProductRateTable.resx">
       <DependentUpon>202311070918496_addProductRateTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311100406528_AddInvoiceTable.resx">
+      <DependentUpon>202311100406528_AddInvoiceTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

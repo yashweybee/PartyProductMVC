@@ -6,29 +6,16 @@
 
 <h2>Invoice</h2>
 
+@using (Html.BeginForm("Save", "Product"))
+{
+    @*<div class="form-group">
+        @Html.LabelFor(p => p.ProductName)
+        @Html.TextBoxFor(p => p.ProductName, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.ProductName)
+    </div>
 
-@*@Html.BeginForm()*@
+    @Html.HiddenFor(p => p.ProductId)*@
 
-
-@*-----Invoice genrated Table----*@
-@*<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">E</th>
-            <th scope="col">D</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>@product.ProductName</td>
-                <td>Edit</td>
-                <td>Delete</td>
-            </tr>
-        }
-    </tbody>
-</table>*@
-
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/" class="btn btn-danger">Cancle</a>
+}      
