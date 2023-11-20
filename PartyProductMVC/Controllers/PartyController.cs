@@ -1,9 +1,5 @@
 ﻿using PartyProductMVC.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PartyProductMVC.Controllers
@@ -39,14 +35,21 @@ namespace PartyProductMVC.Controllers
         [HttpPost]
         public ActionResult Save(Party party)
         {
-            Party p = new Party()
+            if (!ModelState.IsValid)
             {
-                PartyName = party.PartyName
-            };
-            _context.Party.Add(p);
-            _context.SaveChanges();
+                return View("Add");
+            }
+            else
+            {
+                Party p = new Party()
+                {
+                    PartyName = party.PartyName
+                };
+                _context.Party.Add(p);
+                _context.SaveChanges();
 
-            return RedirectToAction("Index", "Party");
+                return RedirectToAction("Index", "Party");
+            }
         }
 
         public ActionResult SaveEdit(Party party)

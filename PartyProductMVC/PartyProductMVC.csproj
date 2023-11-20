@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202311100406528_AddInvoiceTable.designer.cs">
       <DependentUpon>202311100406528_AddInvoiceTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311200551371_updatePropertiesInvoiceTable.cs" />
+    <Compile Include="Migrations\202311200551371_updatePropertiesInvoiceTable.designer.cs">
+      <DependentUpon>202311200551371_updatePropertiesInvoiceTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssignParty.cs" />
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311100406528_AddInvoiceTable.resx">
       <DependentUpon>202311100406528_AddInvoiceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311200551371_updatePropertiesInvoiceTable.resx">
+      <DependentUpon>202311200551371_updatePropertiesInvoiceTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

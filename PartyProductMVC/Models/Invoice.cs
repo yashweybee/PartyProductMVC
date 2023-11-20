@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace PartyProductMVC.Models
 {
@@ -15,17 +11,11 @@ namespace PartyProductMVC.Models
 
 
         [Display(Name = "Party")]
-        public int PartyId { get; set; }
-
-        [ForeignKey("PartyId")]
-        public Party Party { get; set; }
+        public string PartyName { get; set; }
 
 
         [Display(Name = "Product")]
-        public int ProductId { get; set; }
-
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
+        public string ProductName { get; set; }
 
 
         [Required]

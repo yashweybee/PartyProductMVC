@@ -1,8 +1,7 @@
 ﻿namespace PartyProductMVC.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddedAssignPartyTable : DbMigration
     {
         public override void Up()
@@ -10,19 +9,19 @@
             CreateTable(
                 "dbo.AssignParties",
                 c => new
-                    {
-                        AsId = c.Int(nullable: false, identity: true),
-                        PartyId = c.Int(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                    })
+                {
+                    AsId = c.Int(nullable: false, identity: true),
+                    PartyId = c.Int(nullable: false),
+                    ProductId = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.AsId)
                 .ForeignKey("dbo.Parties", t => t.PartyId, cascadeDelete: true)
                 .ForeignKey("dbo.Products", t => t.ProductId, cascadeDelete: true)
                 .Index(t => t.PartyId)
                 .Index(t => t.ProductId);
-            
+
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.AssignParties", "ProductId", "dbo.Products");
