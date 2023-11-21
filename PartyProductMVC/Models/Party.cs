@@ -7,7 +7,7 @@ namespace PartyProductMVC.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column(Order = 1)]
+        //[Column(Order = 1)]
         public int PartyId { get; set; }
 
         [Required]
