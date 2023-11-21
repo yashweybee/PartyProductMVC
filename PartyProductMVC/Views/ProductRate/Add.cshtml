@@ -14,17 +14,15 @@
         @Html.ValidationMessageFor(m => m.ProductId)
     </div>
 
-
     <div class="form-group">
         @Html.LabelFor(pr => pr.Rate)
-        @Html.TextBoxFor(p => p.Rate, "", new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.Rate, "", new { @class = "form-control", @type = "number", @min = 0 })
         @Html.ValidationMessageFor(p => p.Rate)
     </div>
 
-
     <div class="form-group">
         @Html.LabelFor(pr => pr.DateOfRate)
-        @Html.TextBoxFor(p => p.DateOfRate, "", new { @class = "form-control" })
+        @Html.TextBoxFor(p => p.DateOfRate, "{0:d MM yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(p => p.DateOfRate)
     </div>
 

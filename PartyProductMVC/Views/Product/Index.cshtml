@@ -3,24 +3,36 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<a href="product/add" class="btn btn-info">Add Product</a>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">E</th>
-            <th scope="col">D</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var product in Model)
-        {
-        <tr>
-            <td>@product.ProductName</td>
-            <td>@Html.ActionLink("Edit", "Edit", "Product", new { id = product.ProductId }, null)</td>
-            <td>@Html.ActionLink("Delete", "Delete", "Product", new { id = product.ProductId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
-        </tr>
-        }
-    </tbody>
-</table>
+<h2>Products</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <a href="product/add" class="btn btn-info">Add Product</a>
+}
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Product Name</th>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <th scope="col">E</th>
+                    <th scope="col">D</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductName</td>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>@Html.ActionLink("Edit", "Edit", "Product", new { id = product.ProductId }, null)</td>
+                        <td>@Html.ActionLink("Delete", "Delete", "Product", new { id = product.ProductId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>

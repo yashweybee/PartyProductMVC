@@ -23,12 +23,12 @@
 
             <div class="form-group">
                 @Html.Label("RateOfProduct", new { @class = "col-form-label" })
-                @Html.TextBox("RateOfProduct", "", new { @class = "form-control" })
+                @Html.TextBox("RateOfProduct", "", new { @class = "form-control", @type = "number" , @min = 0 })
             </div>
 
             <div class="form-group">
                 @Html.Label("Quantity", new { @class = "col-form-label" })
-                @Html.TextBox("Quantity", "", new { @class = "form-control" })
+                @Html.TextBox("Quantity", "", new { @class = "form-control", @type = "number",  @min = 0 })
             </div>
 
           

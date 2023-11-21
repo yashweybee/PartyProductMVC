@@ -5,30 +5,40 @@
 }
 
 <h2>Product Rate</h2>
-<a href="ProductRate/Add" class="btn btn-info">Add Product Rate</a>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">Rate</th>
-            <th scope="col">Date</th>
-            <th scope="col">E</th>
-            <th scope="col">D</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var productRate in Model)
-        {
+@if (User.IsInRole("Admin"))
+{
+    <a href="ProductRate/Add" class="btn btn-info">Add Product Rate</a>
+}
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <td>@productRate.Product.ProductName</td>
-                <td>@productRate.Rate</td>
-                <td>@productRate.DateOfRate</td>
-                <td>@Html.ActionLink("Edit", "Edit", "ProductRate", new { id = productRate.ProductRateId }, null)</td>
-                <td>@Html.ActionLink("Delete", "Delete", "ProductRate", new { id = productRate.ProductRateId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
-            </tr>
-        }
-    </tbody>
-</table>
+                <th scope="col">Product Name</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Date</th>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <th scope="col">E</th>
+                    <th scope="col">D</th>
+                }
+                </tr>
+        </thead>
+        <tbody>
+            @foreach (var productRate in Model)
+            {
+                <tr>
+                    <td>@productRate.Product.ProductName</td>
+                    <td>@productRate.Rate</td>
+                    <td>@productRate.DateOfRate</td>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>@Html.ActionLink("Edit", "Edit", "ProductRate", new { id = productRate.ProductRateId }, null)</td>
+                        <td>@Html.ActionLink("Delete", "Delete", "ProductRate", new { id = productRate.ProductRateId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+                    }
+                    </tr>
+            }
+        </tbody>
+    </table>
 
 

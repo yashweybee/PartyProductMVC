@@ -6,29 +6,38 @@
 
 <h2>Assign Party</h2>
 
-<a href="AssignParty/add" class=" btn btn-info">Assign Party</a>
+@if (User.IsInRole("Admin"))
+{
+    <a href="AssignParty/add" class=" btn btn-info">Assign Party</a>
+}
 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Party </th>
-            <th scope="col">Product </th>
-            <th scope="col">E</th>
-            <th scope="col">D</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var ap in Model)
-        {
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <td>@ap.Party.PartyName</td>
-                <td>@ap.Product.ProductName</td>
-                <td>@Html.ActionLink("Edit", "Edit", "AssignParty", new { id = ap.AsId }, null)</td>
-                <td>@Html.ActionLink("Delete", "Delete", "AssignParty", new { id = ap.AsId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
-                
-            </tr>
-        }
-    </tbody>
-</table>
+                <th scope="col">Party </th>
+                <th scope="col">Product </th>
+                @if (User.IsInRole("Admin"))
+                {
+                    <th scope="col">E</th>
+                    <th scope="col">D</th>
+                }
+                </tr>
+        </thead>
+        <tbody>
+            @foreach (var ap in Model)
+            {
+                <tr>
+                    <td>@ap.Party.PartyName</td>
+                    <td>@ap.Product.ProductName</td>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>@Html.ActionLink("Edit", "Edit", "AssignParty", new { id = ap.AsId }, null)</td>
+                        <td>@Html.ActionLink("Delete", "Delete", "AssignParty", new { id = ap.AsId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+                    }
+                    </tr>
+            }
+        </tbody>
+    </table>
 
 

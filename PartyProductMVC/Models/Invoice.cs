@@ -19,6 +19,7 @@ namespace PartyProductMVC.Models
 
 
         [Required]
+        [RegularExpression(@"^\d+$", ErrorMessage = "Please enter only numeric values.")]
         public int RateOfProduct { get; set; }
 
 

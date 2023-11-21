@@ -1,23 +1,24 @@
 ﻿@model PartyProductMVC.Models.AssignParty
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "AssignAddEdit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit Assign Party</h2>
-@using (Html.BeginForm("SaveEdit", "AssignParty"))
+<h2>AssignAddEdit</h2>
+
+@using (Html.BeginForm("AssignSave", "AssignParty"))
 {
+    @Html.HiddenFor(model => Model.AsId)
+
+
     <div class="form-group">
-        @Html.LabelFor(m => m.PartyId)
-        @Html.DropDownListFor(m => m.Party.PartyId, new SelectList(ViewBag.listParty, "PartyId", "PartyName"),"select Party" ,new { @class = "form-control" })
+        @Html.LabelFor(model => model.Party.PartyId, "Select Patry:")
+        @Html.DropDownListFor(model => model.Party.PartyId, new SelectList(ViewBag.ListParty, "PartyId", "PartyName"), "select Party", new { @class = "form-control" })
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.ProductId)
-        @Html.DropDownListFor(m => m.Product.ProductId, new SelectList(ViewBag.listProduct, "ProductId", "ProductName"), "select Product" ,new { @class = "form-control" })
+        @Html.LabelFor(model => model.Product.ProductId, "Select Product:")
+        @Html.DropDownListFor(model => model.Product.ProductId, new SelectList(ViewBag.ListProduct, "ProductId", "ProductName"), "Select Product", new { @class = "form-control" })
     </div>
-
-    @Html.HiddenFor(ap => ap.AsId)
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a href="/AssignParty" class="btn btn-danger">Cancle</a>
+    <button class="btn btn-info mt-4">Submit</button>
 }

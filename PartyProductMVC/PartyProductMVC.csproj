@@ -211,6 +211,14 @@
     <Compile Include="Migrations\202311200551371_updatePropertiesInvoiceTable.designer.cs">
       <DependentUpon>202311200551371_updatePropertiesInvoiceTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202311200652092_PartyNameValidation.cs" />
+    <Compile Include="Migrations\202311200652092_PartyNameValidation.designer.cs">
+      <DependentUpon>202311200652092_PartyNameValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311201012038_seedUsers.cs" />
+    <Compile Include="Migrations\202311201012038_seedUsers.designer.cs">
+      <DependentUpon>202311201012038_seedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssignParty.cs" />
@@ -364,6 +372,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202311200551371_updatePropertiesInvoiceTable.resx">
       <DependentUpon>202311200551371_updatePropertiesInvoiceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311200652092_PartyNameValidation.resx">
+      <DependentUpon>202311200652092_PartyNameValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311201012038_seedUsers.resx">
+      <DependentUpon>202311201012038_seedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

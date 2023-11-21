@@ -4,25 +4,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<a href="Party/Add" class="btn btn-info" >Add Party</a>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Party Name</th>
-            <th scope="col">E</th>
-            <th scope="col">D</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var party in Model)
-        {
+<h2>Party</h2>
+@if (User.IsInRole("Admin"))
+{
+    <a href="Party/Add" class="btn btn-info">Add Party</a>
+}
+    <table class="table">
+        <thead class="thead-dark">
             <tr>
-                <td>@party.PartyName</td>
-                <td>@Html.ActionLink("Edit", "Edit", "Party", new { id = party.PartyId }, null)</td>
-                <td>@Html.ActionLink("Delete", "Delete", "Party", new { id = party.PartyId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+                <th scope="col">Party Name</th>
+                @if (User.IsInRole("Admin"))
+                {
+
+                    <th scope="col">E</th>
+                    <th scope="col">D</th>
+                }
+
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var party in Model)
+            {
+                <tr>
+                    <td>@party.PartyName</td>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>@Html.ActionLink("Edit", "Edit", "Party", new { id = party.PartyId }, null)</td>
+                        <td>@Html.ActionLink("Delete", "Delete", "Party", new { id = party.PartyId }, new { onclick = "return confirm('Are sure wants to delete?');" })</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
 

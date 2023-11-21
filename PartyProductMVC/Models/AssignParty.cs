@@ -12,6 +12,8 @@ namespace PartyProductMVC.Models
 
 
         [Display(Name = "Party")]
+        //[ForeignKey("Party")]
+        //[Column(Order = 1)]
         public int PartyId { get; set; }
 
         [ForeignKey("PartyId")]
@@ -20,6 +22,8 @@ namespace PartyProductMVC.Models
 
 
         [Display(Name = "Product")]
+        //[ForeignKey("Product")]
+        //[Column(Order = 1)]
         public int ProductId { get; set; }
 
         [ForeignKey("ProductId")]

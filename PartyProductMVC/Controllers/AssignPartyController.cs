@@ -34,6 +34,9 @@ namespace PartyProductMVC.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Add()
         {
             var party = _context.Party;
@@ -60,12 +63,16 @@ namespace PartyProductMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Edit(int id)
+
+        [Authorize(Roles = "Admin")]
+
+
+        public ActionResult Edit(int? Id)
         {
-            var assignParty = _context.AssignParty.SingleOrDefault(ap => ap.AsId == id);
-            ViewBag.listParty = _context.Party;
-            ViewBag.listProduct = _context.Product;
-            return View("Edit", assignParty);
+            ViewBag.ListParty = _context.Party;
+            ViewBag.ListProduct = _context.Product;
+            var assignEdit = _context.AssignParty.Include(p => p.Party).Include(pr => pr.Product).First(a => a.AsId == Id);
+            return View("Edit", assignEdit);
         }
 
         public ActionResult SaveEdit(AssignParty assignParty)

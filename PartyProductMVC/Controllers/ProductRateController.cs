@@ -1,4 +1,5 @@
 ﻿using PartyProductMVC.Models;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -25,6 +26,9 @@ namespace PartyProductMVC.Controllers
 
             return View(ProductRate);
         }
+
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Add()
         {
             var Products = _context.Product;
@@ -35,6 +39,7 @@ namespace PartyProductMVC.Controllers
         [HttpPost]
         public ActionResult Save(ProductRate Product_Rate)
         {
+
             ProductRate pr = new ProductRate()
             {
                 ProductId = Product_Rate.Product.ProductId,
@@ -44,9 +49,12 @@ namespace PartyProductMVC.Controllers
             _context.ProductRate.Add(pr);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Add");
+
         }
 
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var productRate = _context.ProductRate.Include(p => p.Product).SingleOrDefault(pr => pr.ProductRateId == id);

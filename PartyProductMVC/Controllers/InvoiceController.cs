@@ -4,7 +4,6 @@ using System.Web.Mvc;
 
 namespace PartyProductMVC.Controllers
 {
-
     public class InvoiceController : Controller
     {
         private ApplicationDbContext _context;
@@ -18,6 +17,10 @@ namespace PartyProductMVC.Controllers
         {
             _context.Dispose();
         }
+
+
+
+        [Authorize(Roles = "Admin")]
         // GET: Invoice
         public ActionResult Index()
         {

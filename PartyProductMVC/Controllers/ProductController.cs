@@ -23,6 +23,8 @@ namespace PartyProductMVC.Controllers
 
             return View(products);
         }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Add()
         {
             var products = new Product();
@@ -33,6 +35,11 @@ namespace PartyProductMVC.Controllers
         [HttpPost]
         public ActionResult Save(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Add");
+
+            }
             Product p = new Product()
             {
                 ProductName = product.ProductName
@@ -49,6 +56,11 @@ namespace PartyProductMVC.Controllers
         [HttpPost]
         public ActionResult SaveEdit(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+
+            }
             Product p = new Product()
             {
                 ProductName = product.ProductName
@@ -61,6 +73,8 @@ namespace PartyProductMVC.Controllers
             return RedirectToAction("Index", "Product");
         }
 
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var product = _context.Product.SingleOrDefault(p => p.ProductId == id);

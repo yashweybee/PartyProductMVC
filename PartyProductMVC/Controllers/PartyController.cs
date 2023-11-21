@@ -25,6 +25,8 @@ namespace PartyProductMVC.Controllers
             return View(party);
         }
 
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Add()
         {
             var party = new Party();
@@ -54,18 +56,29 @@ namespace PartyProductMVC.Controllers
 
         public ActionResult SaveEdit(Party party)
         {
-            Party p = new Party()
+
+            if (!ModelState.IsValid)
             {
-                PartyName = party.PartyName
-            };
+                return View("Edit");
+            }
+            else
+            {
 
-            var partyContextDb = _context.Party.SingleOrDefault(pr => pr.PartyId == party.PartyId);
-            partyContextDb.PartyName = party.PartyName;
+                Party p = new Party()
+                {
+                    PartyName = party.PartyName
+                };
 
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Party");
+                var partyContextDb = _context.Party.SingleOrDefault(pr => pr.PartyId == party.PartyId);
+                partyContextDb.PartyName = party.PartyName;
+
+                _context.SaveChanges();
+                return RedirectToAction("Index", "Party");
+            }
         }
 
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var party = _context.Party.SingleOrDefault(p => p.PartyId == id);

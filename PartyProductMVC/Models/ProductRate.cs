@@ -17,6 +17,7 @@ namespace PartyProductMVC.Models
         public Product Product { get; set; }
 
         [Required]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Rate must be in Numbers")]
         public int Rate { get; set; }
 
         [Required]
